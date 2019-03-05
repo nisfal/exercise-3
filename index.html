@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Star Wars</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="https://id-id.starwars.com//favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>May the source be with you</h2>
+  <p>Type something in the input field to search the table:</p>  
+  <input class="form-control" id="myInput" type="text" placeholder="Search..">
+  <br>
+  <table class="table" id="root">
+          <thead class="thead-dark">
+            <tr>
+              <th>Name</th>
+              <th>Height</th>
+              <th>Mass</th>
+              <th>Hair Color</th>
+              <th>Skin Color</th>
+              <th>Eye Color</th>
+              <th>Birth Year</th>
+              <th>Gender</th>
+            </tr>
+          </thead>
+         
+        </table>
+      </div>
+</body>
+<script src="index.js"></script>
+<script>
+    $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+    </script>
+</html>
